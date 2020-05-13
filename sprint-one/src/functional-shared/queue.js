@@ -30,7 +30,7 @@ var queueMethods = {
   },
 
   size: function() {
-    return this.count - this.first;
+    return this.count - this.first
   }
 };
 
