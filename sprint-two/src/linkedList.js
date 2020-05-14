@@ -20,7 +20,18 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-
+    // Check if list is empty
+    if (list.head === null) {return};
+    // Create variable to store current head.
+    var currentHead = list.head; // a
+    // Create variable to hold new head
+    var newHead = list.head.next;
+    // Remove head node
+    delete list.head;
+    // Update head to next head
+    list.head = newHead;
+    // Returns removed head
+    return currentHead.value;
   };
 
   list.contains = function(target) {
