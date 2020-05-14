@@ -26,15 +26,25 @@ var LinkedList = function() {
     var currentHead = list.head; // a
     // Create variable to hold new head
     var newHead = list.head.next;
-    // Remove head node
+    // Remove current head node
     delete list.head;
     // Update head to next head
     list.head = newHead;
-    // Returns removed head
+    // Returns removed head value
     return currentHead.value;
   };
 
   list.contains = function(target) {
+    // Traverse the linked List until no more nodes
+    var n = list.head;
+    while ( n !== null) {
+      // If contains target (value), return true
+      if (n.value === target) {
+        return true;
+      }
+      n = n.next;
+    }
+    return false;
   };
 
   return list;
