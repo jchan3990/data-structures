@@ -22,8 +22,6 @@ Graph.prototype.contains = function(node) {
 Graph.prototype.removeNode = function(node) {
   // check that node and see if edge has properties
   var edgeList = Object.keys(this.vertices[node]);
-  console.log(this.vertices[node]);
-  // [6]
 
   // iterate over the array of nodes
   for (var i = 0; i < edgeList.length; i++) {
@@ -43,12 +41,11 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
   } else {
     return false;
   }
-
 };
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
-  // input: two nodes objects
+  // input: two nodes
   // Add adjacent nodes as keys to their corresponding nodes with the value of true
   this.vertices[fromNode][toNode] = true;
   this.vertices[toNode][fromNode] = true;
@@ -56,10 +53,7 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
-
-
-
-  // delete appropriate edge property (connection) two both node objects
+  // delete appropriate edge property (connection) two both node
   delete this.vertices[fromNode][toNode];
   delete this.vertices[toNode][fromNode];
 };
@@ -67,12 +61,14 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
   // this is how we traverse the graph
-  var firstNode;
+  // Create variable to hold all node values in an array
+  var allNodes = Object.keys(this.vertices);
 
-  // access the neighbor node
-  // at each node, we want to see obj.value and apply the cb
-
-
+  // Iterate through array
+  for (var i = 0; i < allNodes.length; i++) {
+    cb(allNodes[i]);
+  }
+  // Call callback on each item
 };
 
 /*
