@@ -17,7 +17,6 @@ HashTable.prototype.insert = function(k, v) {
   // If not empty,
   var bucket = this._storage.get(index) || [];
 
-    // Check if array[0] === k
     for (var i = 0; i < bucket.length; i++) {
       var tuple = bucket[i];
       if (tuple[0] === k) {
