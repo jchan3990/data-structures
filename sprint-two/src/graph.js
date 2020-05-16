@@ -8,7 +8,7 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
-  // add an object node to the graph with a property value of value
+  // add an object node to the graph with a key value of node
   this.vertices[node] = {};
 };
 
@@ -20,7 +20,16 @@ Graph.prototype.contains = function(node) {
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
+  // check that node and see if edge has properties
+  var edgeList = Object.keys(this.vertices[node]);
+  console.log(this.vertices[node]);
+  // [6]
 
+  // iterate over the array of nodes
+  for (var i = 0; i < edgeList.length; i++) {
+    // go to index[i] node and remove that association
+    delete this.vertices[edgeList[i]][node];
+  }
 
   // delete target node from graph
   delete this.vertices[node];
@@ -47,6 +56,9 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+
+
+
   // delete appropriate edge property (connection) two both node objects
   delete this.vertices[fromNode][toNode];
   delete this.vertices[toNode][fromNode];
