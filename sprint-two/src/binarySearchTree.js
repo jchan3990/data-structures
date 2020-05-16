@@ -8,37 +8,59 @@ class BinarySearchTree {
   constructor(value) {
     this.tree = {};
     this.tree.value = value;
-    this.tree.children = [];
-  }
-
-  // A .left property, a binary search tree (BST) where all values are lower than the current value.
-  leftProperty() {
-    // Set left property of node to true
-    this.tree.left = true;
-
-  }
-
-  // A .right property, a BST where all values are higher than the current value.
-  rightProperty() {
-    // Set right property of tree to true
-    this.tree.right = true;
-
+    // this.tree.children = [];
+    this.tree.left;
+    this.tree.right;
   }
 
   // A .insert() method, which accepts a value and places it in the tree in the correct position.
   insert(value) {
-    // Helper function to determine where to insert new node
-    var insertValue = function (value) {
-      // Check value in relations to parent
-      // If input value is lesser than root node value
-      if (value < this.tree.value) {
+      var childNode = new BinarySearchTree(value);
+      // ChildNode.value = 5
 
-      }
-      // Insert to the left
-      // If input value is greater than root node value
-      // Inert to the right
-      // Recurse side of the branch
+
+      // helper function to intake current node
+      var searchTree = function(currentNode) {
+
+        // var node = { val: 5
+                        // left: { val: 2
+                        //         left: 1
+                        //         right: {}       }}
+
+        // base case is when currentNode is {}
+          // insert node
+
+        // recursive to keep checking left or right going down
+        if (value < currentNode.value) { // 3 > 2 node --> skip
+          searchTree(currentNode.left);  //
+          return currentNode.value = new BinaryTree(value);
+        }
+        if (value > currentNode.value) {  // 3 > 2 node
+          searchTree(currentNode.right); // right of 2 node.right = {} // nothing
+          return currentNode.value = new BinaryTree(value);
+        }
+
+        // return;
+        // var previousnode = insert that
+
+        // if (value < currentNode.value)
+        //   currentNode.left = currentNode;
+        //     currentNode.left = new BinaryTree(value)
+
+        // if (value > currentNode.value)
+        //   currentNode.left = currentNode;
+      // at current node, check if value less than current node value
+
+        // access the left property of the current node, and you'll be at an object
+        // check again if you're less than or greater than that current node
+        // if there's nothing there, then you insert
+        // if both left and right properties don't exist, then insert
+      // check if greater
+
+      //
     }
+    searchTree(this.tree);
+
   }
 
   // A .contains() method, which accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.

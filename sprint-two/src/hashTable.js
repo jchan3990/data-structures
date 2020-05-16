@@ -36,7 +36,6 @@ HashTable.prototype.retrieve = function(k) {
   var bucket = this._storage.get(index);
   for (var i = 0; i < bucket.length; i++) {
     var tuple = bucket[i];
-    console.log(tuple);
     if (tuple[0] === k) {
       return tuple[1];
     }
